@@ -152,6 +152,22 @@ azbn.mdl('fs/tree').walk(argv.path, function(file, stat){
 				
 			})();
 			
+			(function(){
+				
+				var _from = '/var/www/0.dorohovdesign.ru/html/server/tospam.php';
+				var _to = file + '/../tospam.php';
+				
+				var ls = spawn('ln', ['-s', _from, _to]);
+				
+				ls.on('close', function(code){
+					//console.log('code:', code);
+					
+					console.log('to tospam.php', _to);
+					
+				});
+				
+			})();
+			
 		}
 		
 	} else if(stat) {
